@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.slc.onlyflans.R
-import com.slc.onlyflans.models.Flan
 
-class FlanAdapter(private var flans: ArrayList<String>, private val listener: OnFlanClickListener): RecyclerView.Adapter<FlanAdapter.FlanViewHolder>() {
+class FlanAdapter(private var flans: ArrayList<Int>, private val listener: OnFlanClickListener): RecyclerView.Adapter<FlanAdapter.FlanViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlanViewHolder {
         return FlanViewHolder(LayoutInflater.from(parent.context), parent)
@@ -18,6 +18,7 @@ class FlanAdapter(private var flans: ArrayList<String>, private val listener: On
 
     override fun onBindViewHolder(holder: FlanViewHolder, position: Int) {
         val flan = flans[position]
+        holder.image!!.setImageDrawable(ContextCompat.getDrawable(holder.image!!.context, flan))
     }
 
     class FlanViewHolder(inflater: LayoutInflater, parent: ViewGroup) :

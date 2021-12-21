@@ -19,8 +19,26 @@ class MainActivity : AppCompatActivity(), FlanAdapter.OnFlanClickListener {
     }
 
     private fun initVariables() {
+        val flanList = arrayListOf(
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral,
+            R.drawable.flan_neutral
+        )
         val gridLayoutManager = GridLayoutManager(this, 2)
-        val adapter = FlanAdapter(arrayListOf("", "", ""), this)
+        val adapter = FlanAdapter(flanList, this)
 
         binding.rvFlans.layoutManager = gridLayoutManager
         binding.rvFlans.adapter = adapter
