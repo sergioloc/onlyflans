@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.slc.onlyflans.adapters.FlanAdapter
 import com.slc.onlyflans.databinding.MainActivityBinding
+import com.slc.onlyflans.util.Mock
 
 class MainActivity : AppCompatActivity(), FlanAdapter.OnFlanClickListener {
 
@@ -19,26 +20,10 @@ class MainActivity : AppCompatActivity(), FlanAdapter.OnFlanClickListener {
     }
 
     private fun initVariables() {
-        val flanList = arrayListOf(
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral,
-            R.drawable.flan_neutral
-        )
         val gridLayoutManager = GridLayoutManager(this, 2)
-        val adapter = FlanAdapter(flanList, this)
+        val list = Mock.flanList
+        list.shuffle()
+        val adapter = FlanAdapter(list, this)
 
         binding.rvFlans.layoutManager = gridLayoutManager
         binding.rvFlans.adapter = adapter
